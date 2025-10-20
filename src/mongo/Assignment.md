@@ -94,15 +94,24 @@ Hint: Use $gte and $lt operators to specify a date range from January 1, 2024 to
 Complete the "Find" homework in Day 2.
 
 1. Find a shortcut for admin commands. Write the shortcut here.
-
+```db.adminCommand()```
 
 2. Find the online documentation for queries and cursors. Write the URL here.
-
+```https://www.mongodb.com/docs/manual/core/read-operations-introduction/```
 
 3. Find the MongoDB documentation for mapreduce. Write the URL here.
-
+```https://www.mongodb.com/docs/manual/core/map-reduce/```
 
 4. Through the JavaScript interface, investigate the code for three collections
     functions: help(), findOne(), and stats(). Past the code for each below.
     For each, write a one-sentence insight that you learned by looking at
     the code.
+
+<!--
+db.collection.help - isn’t an internal database function — it’s just a JavaScript helper that prints available collection methods for user reference.
+
+db.collection.findOne - is just a wrapper around find() with a limit(1) — meaning it still uses a cursor internally but returns a single document.
+
+db.collection.stats - simply runs the collStats admin command and returns collection statistics like size, count, and storage usage.
+
+-->
