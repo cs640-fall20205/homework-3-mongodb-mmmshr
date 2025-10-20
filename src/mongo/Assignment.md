@@ -52,12 +52,40 @@ Insert five of your friends as patrons into the library. Make sure that these ar
 For each of the queries below, write the query and include the results.
 
 1. Write a query to find the titles of all books that have at least one copy available for checkout.
+<!--
+db.books.find(
+  { copiesAvailable: { $gt: 0 } },
+  { _id: 0, title: 1 }
+);
+-->
 
 2. Write a query to find the authors of all books in the "Fiction" genre.
+<!--
+db.books.find(
+   { genre: "Fiction" },
+   { _id: 0, author: 1 }
+ );-->
 
 3. Write a query to find the names of all patrons who owe fines (fines greater than $0).
+<!--
+db.patrons.find(
+  { fines: { $gt: 0 } },
+  { _id: 0, name: 1, fines: 1 }
+);
+ -->
 
 4. Write a query to find the names and membership date of all patrons who became members in the year 2024.
+<!--
+db.patrons.find(
+  {
+    membershipDate: {
+      $gte: ISODate("2024-01-01"),
+      $lt: ISODate("2025-01-01")
+    }
+  },
+  { _id: 0, name: 1, membershipDate: 1 }
+);
+-->
 
 Hint: Use $gte and $lt operators to specify a date range from January 1, 2024 to January 1, 2025.
 
